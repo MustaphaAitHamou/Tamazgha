@@ -43,6 +43,18 @@ Route::get('/journal/create', [BlogController::class, 'create'])->name('journal.
 Route::get('/journal/{post:slug}', [BlogController::class, 'show'])->name('journal.show');
 
 
+// To edit single post
+Route::get('/journal/{post}/edit', [BlogController::class, 'edit'])->name('journal.edit');
+
+
+// To update single post
+Route::put('/journal/{post}', [BlogController::class, 'update'])->name('journal.update');
+
+
+// To update single post
+Route::delete('/journal/{post}', [BlogController::class, 'delete'])->name('journal.delete');
+
+
 // To store post to the DB
 Route::post('/journal', [BlogController::class, 'store'])->name('journal.store');
 
