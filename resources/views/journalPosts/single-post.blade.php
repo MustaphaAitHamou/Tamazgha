@@ -8,7 +8,7 @@
         <h1>{{$post->title}}</h1>
 
         <p class="time-and-author">
-          {{post->created_at->diffForHumans()}}
+          {{$post->created_at->diffForHumans()}}
           <span>Written By {{$post->user->name}}</span>
         </p>
 

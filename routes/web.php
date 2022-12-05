@@ -35,11 +35,12 @@ Route::get('/', [WelcomeController::class,'index'])->name('azul.index');
 //To blog page
 Route::get('/journal', [BlogController::class, 'index'])->name('journal.index');
 
-// To single post
-Route::get('/journal/{post : slug}', [BlogController::class, 'show'])->name('journal.show');
-
 // To create post
-Route::get('/journal/create', [BlogController::class, 'create'])->name('journal.create');
+Route::get('/journal/create', [BlogController::class, 'create'])->name('journal.create')->middleware('auth');
+
+
+// To single post
+Route::get('/journal/{post:slug}', [BlogController::class, 'show'])->name('journal.show');
 
 
 // To store post to the DB

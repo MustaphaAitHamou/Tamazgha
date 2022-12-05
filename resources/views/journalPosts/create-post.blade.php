@@ -10,30 +10,32 @@
         <h1 style="padding-top: 50px;">Nouvel article</h1>
 
         @if (session('status'))
-            <p style = "color: #fff; width: 100%; font-size:18px;font-weight:600; text-align:center;background: #5cb85c; padding: 17px 0; margin-bottom:6px;">{{session('status')}}</p>
+        <p
+            style="color: #fff; width: 100%; font-size:18px;font-weight:600; text-align:center;background: #5cb85c; padding: 17px 0; margin-bottom:6px;">
+            {{session('status')}}</p>
         @endif
 
 
         <!-- Contact Form -->
         <div class="contact-form">
             <form action="{{route('journal.store')}}" method="post" enctype="multipart/form-data">
-                @csrf            
+                @csrf
                 <!-- Title -->
                 <label for="title"><span>Title</span></label>
-                <input type="text" id="title" name="title" value="{{old('title')}}"/>
+                <input type="text" id="title" name="title" value="{{old('title')}}" />
 
                 @error('title')
                 {{-- The $attributeValue field is/must be $validationRule --}}
-                    <p style="color: red; margin-bottom:25px">{{$message}}</p>
+                <p style="color: red; margin-bottom:25px">{{$message}}</p>
                 @enderror
 
                 <!-- Image -->
                 <label for="image"><span>Image</span></label>
-                <input type="file" id="image" name="image"/>
+                <input type="file" id="image" name="image" />
 
                 @error('image')
                 {{-- The $attributeValue field is/must be $validationRule --}}
-                    <p style="color: red; margin-bottom:25px">{{$message}}</p>
+                <p style="color: red; margin-bottom:25px">{{$message}}</p>
                 @enderror
 
                 <!-- Body -->
@@ -42,26 +44,26 @@
 
                 @error('body')
                 {{-- The $attributeValue field is/must be $validationRule --}}
-                    <p style="color: red; margin-bottom:25px">{{$message}}</p>
+                <p style="color: red; margin-bottom:25px">{{$message}}</p>
                 @enderror
 
                 <!-- Button -->
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="Submit" />
             </form>
         </div>
-</section>
+    </section>
 </main>
 @endsection
 
 @section('scripts')
 <script>
-                        ClassicEditor
-                                .create( document.querySelector( '#body' ) )
-                                .then( editor => {
-                                        console.log( editor );
-                                } )
-                                .catch( error => {
-                                        console.error( error );
-                                } );
+    ClassicEditor
+        .create(document.querySelector('#body'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 </script>
 @endsection
