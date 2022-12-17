@@ -9,9 +9,11 @@ class Category extends Model
 {
     use HasFactory;
 
-    // We have a category and it hasMany posts
-
     public function posts(){
         return $this->hasMany(Post::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }

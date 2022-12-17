@@ -38,6 +38,20 @@
                 <p style="color: red; margin-bottom:25px">{{$message}}</p>
                 @enderror
 
+                <!-- Drop down -->
+                <label for="categories"><span>Choisis une catégorie:</span></label>
+                <select name="category_id" id="categories">
+                    <option selected disabled> Select option</option>
+                    @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+
+                @error('category_id')
+                {{-- The $attributeValue field is/must be $validationRule --}}
+                <p style="color: red; margin-bottom:25px">{{$message}}</p>
+                @enderror
+
                 <!-- Body -->
                 <label for="body"><span>Body</span></label>
                 <textarea id="body" name="body">{{old('body')}}</textarea>
@@ -51,6 +65,11 @@
                 <input type="submit" value="Submit" />
             </form>
         </div>
+
+        <div class="create-categories">
+            <a href="{{route('categories.index')}}">Categories list <span>&#8594;</span></a>
+        </div>
+
     </section>
 </main>
 @endsection
