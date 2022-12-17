@@ -31,22 +31,17 @@
               </h4>
             </div>
           </a>
-          <a href="">
+         
+        @foreach ($relatedPosts as $relatedPosts)
+        <a href="">
             <div class="recommended-card">
-              <img src="{{asset('images/pushups.jpg')}}" alt="" loading="lazy" />
+              <img src="{{asset($relatedPosts->imagePath)}}" alt="" loading="lazy" />
               <h4>
-                The Truth About Pushups
+                {{$relatedPosts->title}}
               </h4>
             </div>
           </a>
-          <a href="">
-            <div class="recommended-card">
-              <img src="{{asset('images/smoothies.jpg')}}" alt="" loading="lazy" />
-              <h4>
-                Healthy Smoothies
-              </h4>
-            </div>
-          </a>
+        @endforeach
 
         </div>
       </section>
